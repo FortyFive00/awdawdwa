@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobilità Sostenibile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            background-color: #4F6F52;
+            font-family: Arial, sans-serif;
+            color: #2E3B32;
+        }
+        .navbar-custom {
+            background-color: #1A4D2E;
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text, .navbar-custom .nav-link {
+            color: white;
+        }
+        .navbar-nav {
+            flex: 1;
+            justify-content: center;
+        }
+        .nav-link {
+            margin: 0 165px;
+        }
+        .container-fluid {
+            padding: 20px;
+        }
+        .intro-section {
+            margin-bottom: 20px;
+        }
+        .intro-section h1 {
+            background: linear-gradient(to right, #553c9a 45%, #ee4b2b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .plot-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .plot-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: rgba(193, 216, 192, 0.212);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px 0;
+            width: 100%;
+            min-height: 400px;
+            box-sizing: border-box;
+            border: solid 1px;
+        }
+        .plot {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .description {
+            flex: 1;
+            padding: 20px;
+            color: #2E3B32;
+        }
+        @media (max-width: 768px) {
+            .plot-container {
+                flex-direction: column;
+            }
+            .plot, .description {
+                flex: 1 1 100%;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">La mobilità sostenibile</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Help</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Chi siamo?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contatti</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="intro-section">
+            <h1>Mobilità Sostenibile</h1>
+            <p>Noi classe 4B PSC dell’istituto ISG PARINI di Lecco, abbiamo svolto un lavoro di educazione civica. Nella prima parte del lavoro abbiamo realizzato un questionario destinato a tutti gli abitanti della provincia di Lecco, con lo scopo di capire come e se le persone tendono a spostarsi da un luogo all’altro in modo sostenibile. Nella seconda fase abbiamo raccolto i dati e li abbiamo messi in forma grafica per poterli analizzare e interpretare. L’ultima fase è quella di creare un sito web dove inserire tutte le informazioni che abbiamo dedotto dallo studio svolto per poter condividere i risultati ottenuti con i sondaggi eseguiti.</p>
+        </div>
+
+        <div class="plot-section" id="plotSection">
+            <!-- Dynamic plot containers will be inserted here -->
+        </div>
+    </div>
+
+    <script>
+        const plotsData = [
+            {
+                title: "Età",
+                labels: ["14-18", "18-30", "30-45", "45-60", "Over 60"],
+                values: [75.5, 11.4, 3.1, 3.0, 7.0],
+                description: "In questo grafico sono rappresentate le percentuali delle fasce d’età che hanno risposto al questionario. I risultati ci dicono che il 75,5% delle persone che hanno votato sono ragazzi dai 14 ai 18 anni. L’11,4% delle risposte sono state date da giovani dai 18 ai 30 anni. Il restate delle risposte sono persone over 30.",
+                type: "pie",
+                colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"]
+            },
+            {
+                title: "Sesso",
+                labels: ["Maschio", "Femmina"],
+                values: [37.8, 62.2],
+                description: "La maggioranza delle risposte sono state date per 62,2% da femmine mentre il 37,8% da maschi.",
+                type: "pie",
+                colors: ["#1f77b4", "#ff7f0e"]
+            },
+            {
+                title: "Luogo di residenza",
+                labels: ["Lecco centro", "Lecco periferia", "Altro"],
+                values: [31.7, 61.4, 6.9],
+                description: "Il 61,4% delle persone che hanno votato a questo sondaggio sono persone che vivono in provincia di Lecco, il 31,7% vive nella periferia di Lecco e la restate parte vive nella Lecco centro.",
+                type: "pie",
+                colors: ["#1f77b4", "#ff7f0e", "#2ca02c"]
+            },
+            {
+                title: "Uso dei mezzi pubblici",
+                labels: ["Quasi mai", "Da 1 a 3", "Da 4 a 6", "Tutti i giorni"],
+                values: [33, 30.2, 29.4, 7.4],
+                description: "Il 33% ha risposto quasi mai, il 29,4% ha risposto tutti i giorni, il 30,2% ha risposto da 4 a 6 volte alla settimana mentre la restante parte ha risposto dai 1 a 3 volte alla settimana.",
+                type: "pie",
+                colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728"]
+            },
+            {
+                title: "Cosa non funziona nel trasporto pubblico di Lecco?",
+                labels: ["Orari dei bus", "Percorso delle linee", "Il fatto che i bus sono vecchi", "L'eccessivo costo dei biglietti", "Numero esiguo di controllori"],
+                values: [469, 198, 180, 351, 84],
+                description: "In questo grafico vengono rappresentate le risposte riguardo a cosa non funziona nel trasporto pubblico di Lecco. La maggior parte delle persone pensa che sono gli orari dei bus a non essere funzionanti per una mobilità fattibile.",
+                type: "bar",
+                colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"]
+            },
+            {
+                title: "Cosa miglioreresti del trasporto pubblico di Lecco?",
+                labels: ["Riduzione dei tempi di attesa", "Quantità di bus", "Percorso delle linee", "Flotta di autobus più moderna", "Maggior numero di controllori", "Biglietti meno cari"],
+                values: [394, 325, 159, 140, 62, 365],
+                description: "Il grafico sottostante rappresenta che cosa le persone vorrebbero migliorare nel trasporto pubblico di Lecco. Le due cose più richieste dai cittadini sono: la riduzione dei tempi di attesa dei pullman e treni e i biglietti meno costosi.",
+                type: "bar",
+                colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"]
+            },
+            {
+                title: "Se l'orario del bus fosse cadenzato, lo prenderesti di più?",
+                labels: ["Sì", "No", "Indifferente"],
+                values: [54.4, 38.1, 7.5],
+                description: "Questo ci dice che se i pullman dovessero avere un’orario cadenzato sicuramente la maggior parte delle persone lo prenderebbe con più frequenza evitando l’uso della macchina. Nonostante molti però dicono che è indifferente perché preferiscono utilizzare l’auto.",
+                type: "pie",
+                colors: ["#1f77b4", "#ff7f0e", "#2ca02c"]
+            },
+            {
+                title: "Perché non prendi il pullman?",
+                labels: ["Non mi è comodo", "Non mi piace", "Impiego più tempo con il bus che con altri mezzi", "È troppo caro", "Fa giri troppo lunghi", "I tempi di attesa sono troppo lunghi", "È troppo pieno, soprattutto nell’ora di punta"],
+                values: [220, 98, 166, 156, 166, 245, 344],
+                description: "In questa rappresentazione grafica è stata posta la domanda del perché molti non prendono il pullman. Le risposte più votate sono state: perché i pullman sono troppo pieni e perché non è visto come un mezzo pubblico comodo.",
+                type: "bar",
+                colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2"]
+            },
+            {
+                title: "Ritieni che i mezzi pubblici siano sicuri?",
+                labels: ["Sì", "No"],
+                values: [53.9, 46.1],
+                description: "Alla domanda: ritieni che i mezzi pubblici siano sicuri? Il 53,9% ha risposto di sì, mentre il 46,1% ha risposto di no.",
+                type: "pie",
+                colors: ["#1f77b4", "#ff7f0e"]
+            }
+        ];
+    
+        const plotSection = document.getElementById('plotSection');
+    
+        plotsData.forEach((plotData, index) => {
+            const plotContainer = document.createElement('div');
+            plotContainer.className = 'plot-container';
+    
+            const plotDiv = document.createElement('div');
+            plotDiv.className = 'plot';
+            plotDiv.id = `myPlot${index}`;
+    
+            const descriptionDiv = document.createElement('div');
+            descriptionDiv.className = 'description';
+            descriptionDiv.innerHTML = `<p>${plotData.description}</p>`;
+    
+            if (index % 2 === 0) {
+                plotContainer.appendChild(plotDiv);
+                plotContainer.appendChild(descriptionDiv);
+            } else {
+                plotContainer.appendChild(descriptionDiv);
+                plotContainer.appendChild(plotDiv);
+            }
+    
+            plotSection.appendChild(plotContainer);
+    
+            let data;
+            if (plotData.type === 'bar') {
+                data = [{
+                    x: plotData.labels,
+                    y: plotData.values,
+                    type: plotData.type,
+                    marker: {
+                        color: plotData.colors
+                    },
+                    text: plotData.values.map(String),
+                    textposition: 'auto'
+                }];
+            } else {
+                data = [{
+                    labels: plotData.labels,
+                    values: plotData.values,
+                    type: plotData.type,
+                    marker: {
+                        colors: plotData.colors
+                    }
+                }];
+            }
+    
+            const layout = {
+                title: plotData.title,
+                autosize: true,
+                paper_bgcolor: '#E8DFCA',
+                plot_bgcolor: '#E8DFCA'
+            };
+    
+            Plotly.newPlot(plotDiv.id, data, layout);
+        });
+    </script>
+    
+    
+    
+    
+</body>
+</html>
