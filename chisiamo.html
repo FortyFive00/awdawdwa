@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi siamo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Stile per il carousel */
+        .carousel-item img {
+            height: 800px;
+            object-fit: cover;
+        }
+        .testo-carousel {
+            color: black;
+            font-weight: bold;
+            background: transparent;
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">La mobilità sostenibile</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Home">Chi siamo</a>
+                
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img_gparini.jpg" class="d-block w-100" alt="100">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>La scuola</h5>
+                    <p class="testo-carousel">Siamo dei ragazzi di 4B Professionale dell'istituto tecnico Giuseppe Parini e ci siamo occupati di fare un sondaggio sulla popolazione di Lecco</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Zuffi.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 >Come è stato possibile</h5>
+                    <p class="testo-carousel">Siamo stati molto fortunati nell'avere come professoressa l'assessore comunale Renata Zuffi, grazie al suo aiuto abbiamo potuto distribuire il questionario al maggior numero di persone possibili all'interno della provincia lecchese</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Lecco.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Lo scopo</h5>
+                    <p class="testo-carousel">L'obiettivo di questo nostro lavoro è stato quello di raccoglioere il maggiorn numero di informazioni possibili sulle opinioni dei lecchesi sui mezzi di trasporto pubblici e più in generale, la situazione dei mezzi</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <footer class="comune-footer">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+            <a class="text-body" href="https://www.comune.lecco.it">Per ulteriori informazioni visita il sito del Comune di Lecco</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+
+body {
+    background-color: #588b53;
+    font-family: Arial, sans-serif;
+    color: #cee2d4;
+}
+.navbar-custom {
+    background-color: #1A4D2E;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text, .navbar-custom .nav-link {
+    color: white;
+}
+.navbar-nav {
+    flex: 1;
+    justify-content: center;
+}
+.nav-link {
+    margin: 0 165px;
+}
+.container-fluid {
+    padding: 20px;
+}
+.intro-section {
+    margin-bottom: 20px;
+}
+.intro-section h1 {
+    background: linear-gradient(to top, #020a07 45%, #035e2c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.plot-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.plot-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(193, 216, 192, 0.212);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px 0;
+    width: 100%;
+    min-height: 400px;
+    box-sizing: border-box;
+    border: solid 1px;
+    transition: transform 0.3s ease, z-index 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.plot-container:hover {
+    transform: scale(1.05); /* Ingrandisce la card del 5% */
+    z-index: 1; /* Porta in primo piano la card ingrandita */
+}
+.plot {
+    flex: 1;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.description {
+    flex: 1;
+    padding: 20px;
+    color: #2E3B32;
+}
+@media (max-width: 768px) {
+    .plot-container {
+        flex-direction: column;
+    }
+    .plot, .description {
+        flex: 1 1 100%;
+        padding: 0;
+    }
+}
+footer {
+    font-weight: bold;
+    border-top: solid 2px;
+}
+footer:hover {
+    text-decoration: none; /*per qualche motivo non va, sinceramente non ho nemmeno più voglia di capire perchè */
+    color:aliceblue;
+}
